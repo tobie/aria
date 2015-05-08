@@ -8862,6 +8862,57 @@ value) indicates the element cannot be grabbed (default).</p>
 				</tbody>
 			</table>
 		</div>
+    <hr/>
+    <div class="property" id="aria-interactive">
+      <pdef>aria-interactive</pdef>
+      <div class="property-description">
+        <p>Indicates that the <a>element</a> and all of its descendants provide widget behaviors when focused.</p>
+        <p>If a structural element supports aria-interactive, setting aria-interactive true will cause the structure to be exposed to assistive technologies as a widget. For example, a structural list can be made into an interactive listview. When a user navigates an element that has aria-interactive set to true, <a>assistive technologies</a> that typically intercept standard keyboard events SHOULD switch to a mode that passes keyboard events through to the web application.</p>
+        <p>If a widget element supports aria-interactive, setting aria-interactive to false will cause the element to be exposed to assistive technologies as a structure. For example, an interactive grid can be transformed into a static table. When a user navigates an element that has aria-interactive set to false, <a>assistive technologies</a> that intercept standard keyboard events SHOULD switch to document browsing mode, as opposed to passing keyboard events through to the web application. </p>
+      </div>
+      <table class="property-features">
+        <caption>Characteristics:</caption>
+        <thead>
+          <tr>
+            <th scope="col">Characteristic</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="property-applicability-head" scope="row">Used in Roles:</th>
+            <td class="property-applicability">Placeholder</td>
+          </tr>
+          <tr>
+            <th class="property-descendants-head" scope="row">Inherits into Roles:</th>
+            <td class="property-descendants">Placeholder</td>
+          </tr>
+          <tr>
+            <th class="property-value-head" scope="row">Value:</th>
+            <td class="property-value"><a href="#valuetype_true-false">true/false</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="value-descriptions">
+        <caption>Values:</caption>
+        <thead>
+          <tr>
+            <th scope="col">Value</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="value-name" scope="row"><strong class="default">false (default for elements with a structural role)</strong></th>
+            <td class="value-description">The element is not interactive. Note that it may still be focusable.< /td>
+          </tr>
+          <tr>
+            <th class="value-name" scope="row"><strong class="default">true (default for elements with a widget role)</strong></th>
+            <td class="value-description">The element is interactive; it has widget behaviors.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 		<hr/>
 		<div class="state" id="aria-invalid">
 			<sdef>aria-invalid</sdef>
