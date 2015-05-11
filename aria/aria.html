@@ -8866,53 +8866,92 @@ value) indicates the element cannot be grabbed (default).</p>
 			</table>
 		</div>
     <hr/>
-    <div class="property" id="aria-interactive">
-      <pdef>aria-interactive</pdef>
-      <div class="property-description">
-        <p>Indicates that the <a>element</a> and all of its descendants provide widget behaviors when focused.</p>
-        <p>If a structural element supports aria-interactive, setting aria-interactive &quot;true&quot; will cause the structure to be exposed to assistive technologies as a widget. For example, a structural list can be made into an interactive listview. When a user navigates an element that has aria-interactive set to &quot;true&quot;, <a>assistive technologies</a> that intercept standard keyboard events SHOULD switch to a mode that passes keyboard events through to the user agent.</p>
-        <p>If a widget element supports aria-interactive, setting aria-interactive to &quot;false&quot; will cause the element to be exposed to assistive technologies as a structure. For example, an interactive grid can be transformed into a static table. When a user navigates an element that has aria-interactive set to &quot;false&quot;, <a>assistive technologies</a> that intercept standard keyboard events SHOULD continue to intercept those keyboard events for the purpose of facilitating document browsing, as opposed to passing the keyboard events through to the user agent.</p>
+      <div class="property" id="aria-interactive">
+        <pdef>aria-interactive</pdef>
+        <div class="property-description">
+          <p>
+            Indicates that the <a>element</a> provides widget behaviors when focused.
+          </p>
+          <p>
+            If a structural element supports aria-interactive, setting aria-interactive &quot;true&quot; will cause the structure to be exposed to assistive technologies as a widget. For example, a structural list can be made into an interactive listview. When a user navigates an element that has
+            aria-interactive set to &quot;true&quot;, <a>assistive technologies</a> that intercept standard keyboard events SHOULD switch to a mode that passes keyboard events through to the user agent.
+          </p>
+          <p>
+            If a widget element supports aria-interactive, setting aria-interactive to &quot;false&quot; will cause the element to be exposed to assistive technologies as a structure. For example, an interactive grid can be transformed into a static table. When a user navigates an element that has
+            aria-interactive set to &quot;false&quot;, <a>assistive technologies</a> that intercept standard keyboard events SHOULD continue to intercept those keyboard events for the purpose of facilitating document browsing, as opposed to passing the keyboard events through to the user agent.
+          </p>
+          <p>
+            Some elements are only complete when additional descendant elements are provided. For example, in <abbr title="Hypertext Markup Language">HTML</abbr>, table elements (matching the <rref>grid</rref> role) require <code>tr</code> descendants (the <rref>row</rref>
+            <a>role</a>), which in turn require <code>th</code> or <code>td</code> children (the
+            <rref>gridcell</rref>
+            ,
+            <rref>columnheader</rref>
+            ,
+            <rref>rowheader</rref>
+            roles). Similarly, lists require list item children. The descendant elements that complete the semantics of an element are described in <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> as <a href="#mustContain">required owned elements</a>.
+          </p>
+          <p>
+            When an author applies the <code>aria-interactive</code> property to an element with a <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> role that has <a href="#mustContain">required owned elements</a>, in addition to exposing the value of aria-interactive for that
+            element with the explicit declaration of the aria-interactive property, the user agent MUST also apply the same value of aria-interactive to the descendant required owned elements.
+          </p>
+          <p>
+            When an author applies <code>aria-interactive</code> to a host language element which has an implicit WAI-ARIA role that supports <code>aria-interactive</code> and has required children as defined by the host language specification, in addition to exposing the value of aria-interactive
+            for the element with the explicit value of <code>aria-interactive</code> , the user agent MUST apply the same value of aria-interactive to any required children. For example, in <abbr title="Hypertext Markup Language">HTML</abbr>, a <code>ul</code> or <code>ol</code> element with <code>aria-interactive=&quot;true&quot;</code>
+            will automatically have <code>aria-interactive=&quot;true&quot;</code> applied to its <code>li</code> elements by the user agent because the
+            <rref>list</rref>
+            role to which the <code>ul</code> or <code>ol</code> corresponds has a <a href="#mustContain">required owned element</a> of
+            <rref>listitem</rref>
+            .
+          </p>
+          <ol class="note">
+            <li>An explicit author-provided value of <code>aria-interactive</code> on a descendant <a href="#mustContain">required owned element</a> does not override the inherited value of <code>aria-interactive</code>.
+            </li>
+            <li>When an author applies aria-interactive to an element that has <a href="#mustContain">required owned elementss</a>, the property value is inherrited only by descendants that correspond to <a href="#mustContain">required owned elements</a>. That is, nested elements with the same
+              role, e.g., nested tables or lists, do not inherit aria-interactive from a ancestor element.
+            </li>
+          </ol>
+          <p class="ednote">Accessibility API mappings for roles that support aria-interactive are not yet defined</p>
+        </div>
+        <table class="property-features">
+          <caption>Characteristics:</caption>
+          <thead>
+            <tr>
+              <th scope="col">Characteristic</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="property-applicability-head" scope="row">Used in Roles:</th>
+              <td class="property-applicability">Placeholder</td>
+            </tr>
+            <tr>
+              <th class="property-value-head" scope="row">Value:</th>
+              <td class="property-value"><a href="#valuetype_true-false">true/false</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="value-descriptions">
+          <caption>Values:</caption>
+          <thead>
+            <tr>
+              <th scope="col">Value</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="value-name" scope="row"><strong class="default">false (default for elements with a structural role)</strong></th>
+              <td class="value-description">The element is not interactive. Note that it may still be focusable.</td>
+            </tr>
+            <tr>
+              <th class="value-name" scope="row"><strong class="default">true (default for elements with a widget role)</strong></th>
+              <td class="value-description">The element is interactive; it has widget behaviors.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="property-features">
-        <caption>Characteristics:</caption>
-        <thead>
-          <tr>
-            <th scope="col">Characteristic</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="property-applicability-head" scope="row">Used in Roles:</th>
-            <td class="property-applicability">Placeholder</td>
-          </tr>
-          <tr>
-            <th class="property-value-head" scope="row">Value:</th>
-            <td class="property-value"><a href="#valuetype_true-false">true/false</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="value-descriptions">
-        <caption>Values:</caption>
-        <thead>
-          <tr>
-            <th scope="col">Value</th>
-            <th scope="col">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="value-name" scope="row"><strong class="default">false (default for elements with a structural role)</strong></th>
-            <td class="value-description">The element is not interactive. Note that it may still be focusable.</td>
-          </tr>
-          <tr>
-            <th class="value-name" scope="row"><strong class="default">true (default for elements with a widget role)</strong></th>
-            <td class="value-description">The element is interactive; it has widget behaviors.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-		<hr/>
+      <hr/>
 		<div class="state" id="aria-invalid">
 			<sdef>aria-invalid</sdef>
 			<div class="state-description">
