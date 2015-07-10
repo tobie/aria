@@ -82,8 +82,8 @@ var biblio = {
 		],
 		"etAl": true,
 		"href": "http://www.w3.org/TR/html-aam-1.0/",
-		"title": "HTML Accessibility API Mappings 1.1",
-		"status": "ED",
+		"title": "HTML Accessibility API Mappings 1.0",
+		"status": "WD",
 		"publisher": "W3C",
 		"deliveredBy": [
 			"http://www.w3.org/html",
