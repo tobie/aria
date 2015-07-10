@@ -81,12 +81,13 @@ var biblio = {
 			"Alexander Surkov"
 		],
 		"etAl": true,
-		"href": "http://www.w3.org/TR/html-aam/",
+		"href": "http://www.w3.org/TR/html-aam-1.0/",
 		"title": "HTML Accessibility API Mappings 1.1",
 		"status": "ED",
 		"publisher": "W3C",
 		"deliveredBy": [
-			"http://www.w3.org/html"
+			"http://www.w3.org/html",
+			"http://www.w3.org/WAI/PF/"
 		]
 	},
 	"MSAA": {
